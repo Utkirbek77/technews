@@ -1,4 +1,3 @@
-
 <?php
 $servername = "localhost";
 $username = "root";
@@ -18,8 +17,10 @@ $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Home</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <link href="https://cdn.jsdelivr.net/npm/daisyui@1.15.0/dist/full.css" rel="stylesheet">
@@ -32,21 +33,21 @@ $result = $conn->query($sql);
     }
   </style>
 </head>
+
 <body>
   <?php include 'navbar.php'; ?>
   <div class="container mx-auto p-4">
     <div class="flex justify-between items-center mb-4">
       <h1 class="text-2xl">Articles</h1>
       <div class="flex">
-        <input type="text" id="search" placeholder="Search..." class="input input-bordered w-full max-w-xs"
-          value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+        <input type="text" id="search" placeholder="Search..." class="input input-bordered w-full max-w-xs" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
         <button onclick="searchArticles()" class="btn btn-primary ml-2">Search</button>
-        <?php if (isset($_GET['search']) && $_GET['search'] != ''): ?>
+        <?php if (isset($_GET['search']) && $_GET['search'] != '') : ?>
           <button onclick="clearSearch()" class="btn btn-secondary ml-2">Clear</button>
         <?php endif; ?>
       </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <?php
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -78,4 +79,5 @@ $result = $conn->query($sql);
     }
   </script>
 </body>
+
 </html>
