@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      @media (min-width: 1001px) {
+        section {
+          width: 30%;
+        }
+        header {
+          height: 3rem;
+          padding: 10px 5px;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          border-bottom: 1px solid #ccc;
+        }
+        .logo {
+          height: 3rem;
+        }
+
+        .articles {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .articles a:hover {
+          transition: 0.5s;
+          background-color: #758398;
+          color: #3d495b;
+          border-radius: 5px;
+          color: #fff;
+        }
+
+        .articles a,
+        .link {
+          text-decoration: none;
+          color: #2b3646;
+          padding: 10px 20px;
+          font-size: 18px;
+          text-align: center;
+        }
+        .profile-small {
+          display: none;
+        }
+        .profile {
+          background-color: #ccc;
+          border-radius: 5px;
+          padding: 10px 20px;
+        }
+        .profile:hover {
+          transition: 0.5s;
+          background-color: #758398;
+          color: #3d495b;
+          border-radius: 5px;
+          color: #fff;
+        }
+      }
+      /* for below 900 px */
+      @media (min-width: 701px) and (max-width: 1000px) {
+        header {
+          height: 5rem;
+          padding: 10px 5px;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          flex-direction: column;
+          border-bottom: 1px solid #ccc;
+        }
+        .logo {
+          height: 2rem;
+        }
+
+        .articles {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .articles a:hover {
+          transition: 0.5s;
+          background-color: #758398;
+          color: #3d495b;
+          border-radius: 5px;
+          color: #fff;
+        }
+        .articles a {
+          text-decoration: none;
+          color: #2b3646;
+          padding: 5px 15px;
+          font-size: 16px;
+          justify-content: center;
+        }
+        .profile-small {
+          margin-left: 15px;
+          background-color: rgb(188, 185, 192);
+        }
+        .profile-big {
+          display: none;
+        }
+        .profile {
+          background-color: #ccc;
+          border-radius: 5px;
+          padding: 5px 5px;
+        }
+        section {
+          width: 30%;
+        }
+      }
+
+      /* below 700 px */
+      @media (min-width: 200px) and (max-width: 700px) {
+        header {
+          height: 6.5rem;
+          padding: 10px 5px;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          flex-direction: column;
+          border-bottom: 1px solid #ccc;
+        }
+        .logo {
+          height: 2rem;
+        }
+
+        .articles {
+          margin-top: 10px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(2, auto);
+          gap: 5px;
+        }
+
+        .articles a:hover {
+          transition: 0.5s;
+          background-color: #758398;
+          color: #3d495b;
+          border-radius: 5px;
+          color: #fff;
+        }
+
+        .articles a {
+          text-decoration: none;
+          color: #2b3646;
+          padding: 5px 10px;
+          font-size: 14px;
+        }
+        .profile-small {
+          background-color: rgb(188, 185, 192);
+        }
+        .profile-big {
+          display: none;
+        }
+        .profile {
+          background-color: #ccc;
+          border-radius: 5px;
+          padding: 5px 10px;
+          text-align: center;
+        }
+        section {
+          width: 40%;
+        }
+      }
+
+      section {
+        min-height: 450px;
+        padding: 20px;
+        margin: 40px 20px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        box-sizing: border-box;
+        position: relative;
+      }
+      .images {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      .content {
+        height: calc(100% - 150px);
+        overflow: hidden;
+      }
+      .read-more {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        cursor: pointer;
+        color: #007bff;
+        background: none;
+        border: none;
+      }
+      .full-text {
+        display: none;
+      }
+
+      main {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    </style>
+
+    <script>
+      function toggleReadMore(btn) {
+        var fullText = btn.previousElementSibling;
+        if (fullText.style.display === "none") {
+          fullText.style.display = "block";
+          btn.textContent = "Read Less";
+        } else {
+          fullText.style.display = "none";
+          btn.textContent = "Read More";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <img
+        class="logo"
+        src="https://www.insart.com/wp-content/uploads/Discovery-Data-1.png"
+        alt=""
+      />
+      <div class="articles">
+        <a href="health.html">Health</a>
+        <a href="design.html">Design</a>
+        <a href="technology.html">Technology</a>
+        <a href="climate.html">Climate</a>
+        <a href="business.html">Business</a>
+        <a href="">Sports</a>
+        <a class="profile profile-small" href="login.php">Profile</a>
+      </div>
+      <a class="link profile profile-big" href="login.php">Profile</a>
+    </header>
+
+    <main>
+      <section>
+        <img
+          class="images"
+          src="https://via.placeholder.com/300x150"
+          alt="Artificial Intelligence"
+        />
+        <div class="content">
+          <h2>The Rise of AI in Everyday Life</h2>
+          <p>
+            From smart assistants to self-driving cars, artificial intelligence
+            is becoming a common part of daily life.
+            <span class="full-text"
+              >AI technologies are not only enhancing consumer products but also
+              transforming industries by optimizing processes and increasing
+              efficiency.</span
+            ><button class="read-more" onclick="toggleReadMore(this)">
+              Read More
+            </button>
+          </p>
+        </div>
+      </section>
+      <section>
+        <img
+          class="images"
+          src="https://via.placeholder.com/300x150"
+          alt="Heart Surgery"
+        />
+        <div class="content">
+          <h2>New Advances in Heart Surgery</h2>
+          <p>
+            Innovative techniques in robotic surgery are proving to reduce
+            recovery times and improve outcomes.
+            <span class="full-text"
+              >These advancements in medical technology are not only making
+              surgeries safer but also more accessible to patients worldwide.
+              Surgeons are now able to perform complex procedures with higher
+              precision and less invasiveness.</span
+            ><button class="read-more" onclick="toggleReadMore(this)">
+              Read More
+            </button>
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
