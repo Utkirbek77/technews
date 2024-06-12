@@ -25,6 +25,7 @@ if ($result->num_rows > 0) {
 <head>
   <meta charset="UTF-8">
   <title><?php echo htmlspecialchars($article['title']); ?></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <link href="https://cdn.jsdelivr.net/npm/daisyui@1.15.0/dist/full.css" rel="stylesheet">
 </head>
@@ -33,7 +34,7 @@ if ($result->num_rows > 0) {
   <?php include 'navbar.php'; ?>
   <div class="container mx-auto p-4">
     <div class="card bg-base-100 shadow-xl">
-      <figure><img src="<?php echo !empty($article['image']) ? htmlspecialchars($article['image']) : 'https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg'; ?>" alt="Article Image" class="object-cover w-full h-96" /></figure>
+      <figure><img src="<?php echo !empty($article['image']) ? htmlspecialchars($article['image']) : "https://via.placeholder.com/300x200?text=No+Image+Available"; ?>" alt="Article Image" class="object-cover w-full h-96" /></figure>
       <div class="card-body">
         <h2 class="card-title"><?php echo htmlspecialchars($article['title']); ?></h2>
         <div><?php echo html_entity_decode($article['content']); ?></div>

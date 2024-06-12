@@ -75,15 +75,16 @@ $conn->close();
 <head>
   <meta charset="UTF-8">
   <title>Edit Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <link href="https://cdn.jsdelivr.net/npm/daisyui@1.15.0/dist/full.css" rel="stylesheet">
 </head>
 
 <body>
   <?php include 'navbar.php'; ?>
-  <div class="flex items-center justify-center min-h-screen">
+  <div class="flex items-center justify-center min-h-screen px-4 sm:px-0">
 
-    <div class="card w-1/2 bg-base-100 shadow-xl">
+    <div class="card w-full sm:w-1/2 bg-base-100 shadow-xl">
       <div class="card-body">
         <h1 class="text-2xl font-bold mb-4 text-center">Edit Your Profile</h1>
         <?php if ($message) : ?>
@@ -95,7 +96,7 @@ $conn->close();
             <span><?= htmlspecialchars($message) ?></span>
           </div>
         <?php endif; ?>
-        <form action="edit-profiles.php" method="post" class="space-y-4">
+        <form action="edit-profiles.php" method="post" class="space-y-4 w-full">
           <div class="form-control">
             <label class="label">
               <span class="label-text">Username</span>
@@ -120,11 +121,11 @@ $conn->close();
             </label>
             <input type="password" name="confirm_password" required class="input input-bordered w-full" />
           </div>
-          <div class="form-control">
-            <input type="submit" value="Update Profile" class="btn btn-primary w-full" />
+          <div class="form-control mt-4">
+            <input type="submit" value="Update Profile" class="btn btn-primary w-full sm:w-auto" />
           </div>
-          <div class="form-control">
-            <input type="submit" name="delete_account" value="Delete Account" class="btn btn-error w-full" />
+          <div class="form-control mt-4">
+            <input type="submit" name="delete_account" value="Delete Account" class="btn btn-error w-full sm:w-auto" />
           </div>
 
         </form>

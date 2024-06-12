@@ -137,6 +137,7 @@ $result = $conn->query($sql);
 <head>
   <meta charset="UTF-8">
   <title>My Articles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <link href="https://cdn.jsdelivr.net/npm/daisyui@1.15.0/dist/full.css" rel="stylesheet">
   <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
@@ -177,26 +178,25 @@ $result = $conn->query($sql);
 <body>
   <?php include 'navbar.php'; ?>
   <div class="container mx-auto p-4">
-    <div class="flex justify-between items-center mb-4">
-      <div class="flex">
+    <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
+      <div class="flex mb-4 sm:mb-0">
         <input type="text" id="search" placeholder="Search..." class="input input-bordered w-full max-w-xs" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
         <button onclick="searchArticles()" class="btn btn-primary ml-2">Search</button>
         <?php if (isset($_GET['search']) && $_GET['search'] != '') : ?>
           <button onclick="clearSearch()" class="btn btn-secondary ml-2">Clear</button>
         <?php endif; ?>
       </div>
-      <button onclick="showModal()" class="btn btn-primary">Create Article</button>
+      <button onclick="showModal()" class="btn btn-primary sm:ml-2">Create Article</button>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <?php
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
           echo "<div class='card bg-base-100 shadow-xl cursor-pointer' onclick='editArticle(" . json_encode($row) . ")'>";
-          echo "<figure><img src='" . (!empty($row['image']) ? htmlspecialchars($row['image']) : "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg") . "' alt='Article Image' class='object-cover w-full h-48'/></figure>";
+          echo "<figure><img src='" . (!empty($row['image']) ? htmlspecialchars($row['image']) : "https://via.placeholder.com/300x200?text=No+Image+Available") . "' alt='Article Image' class='object-cover w-full h-48'/></figure>";
           echo "<div class='card-body'>";
           echo "<h2 class='card-title'>" . htmlspecialchars($row['title']) . "</h2>";
           echo "<div class='line-clamp-4 overflow-hidden'>" . html_entity_decode($row['content']) . "</div>";
-          echo "<div class='flex justify-between items-center mt-4'>";
           echo "</div>";
           echo "</div>";
         }

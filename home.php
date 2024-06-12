@@ -37,9 +37,9 @@ $result = $conn->query($sql);
 <body>
   <?php include 'navbar.php'; ?>
   <div class="container mx-auto p-4">
-    <div class="flex justify-between items-center mb-4">
-      <h1 class="text-2xl">Articles</h1>
-      <div class="flex">
+    <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
+      <h1 class="text-2xl mb-4 sm:mb-0">Public Articles</h1>
+      <div class="w-full sm:w-auto flex items-center">
         <input type="text" id="search" placeholder="Search..." class="input input-bordered w-full max-w-xs" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
         <button onclick="searchArticles()" class="btn btn-primary ml-2">Search</button>
         <?php if (isset($_GET['search']) && $_GET['search'] != '') : ?>
